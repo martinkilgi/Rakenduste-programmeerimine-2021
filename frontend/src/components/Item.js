@@ -1,14 +1,14 @@
-function Item() {
+function Item(props) {
     return (
         <div>
             <div className="itemName">
-                Ese nr 1
+                {props.name}
             </div>
             <div className="itemPrice">
-                140
+                {props.price}
             </div>
             <div className="itemCategory">
-                mobiles
+                {props.category}
             </div>
         </div>
     )
