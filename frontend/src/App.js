@@ -4,11 +4,14 @@ import Cart from './pages/Cart.js'
 import AddItem from './pages/AddItem.js'
 import {Route} from 'react-router-dom'
 import './App.css';
+import Navbar from './components/Navbar';
+import AddCategory from './pages/AddCategory';
 
 
 function App() {
   return (
     <div>
+      <Navbar/>
      <Route path="/" exact>
         <Home />
      </Route>
@@ -17,6 +20,9 @@ function App() {
      </Route>
      <Route path="/additem">
         <AddItem />
+     </Route>
+     <Route path="/addcategory">
+        <AddCategory />
      </Route>
     </div>
   );

@@ -1,0 +1,16 @@
+.navbar {
+  background-color: crimson;
+  height: 75px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart {
+  height: 35px;
+  margin: 20px;
+  margin-right: 25px;
+}
+
+.logo {
+  width: 300px;
+}

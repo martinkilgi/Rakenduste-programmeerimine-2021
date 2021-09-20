@@ -1,12 +1,42 @@
 import Item from '../components/Item'
+import ItemList from '../components/ItemList.js'
+import {useState, useEffect} from 'react'
+import {Link} from 'react-router-dom';
 
 function Home() {
+
+    const [isLoading, setIsLoading] = useState(true);
+    const [loadedItems, setLoadedItems] = useState([]);
+
+
+
+    useEffect(() => {
+        fetch("http://localhost/8080/items").then(res => {
+            return res.json();
+        }).then(data => {
+            console.log(data);
+            setIsLoading(false);
+            setLoadedItems(data);
+        })
+
+    }, [])
+    
+    if (isLoading) {
+            return (
+                <div>
+                    Laeb....
+                </div>
+            )
+    }
+
+
     return (
         <div>
             Koduleht
-            <Item name="Item1" price="40" category="mobiles" />
-            <Item name="Item2" price="60" category="tablets" />
-            <Item name="Item3" price="80" category="computers" />
+            <Link to='/additem'>
+                <button>Lisa uus ese</button>
+            </Link>
+            <ItemList items={loadedItems} />
         </div>
     )
 }
