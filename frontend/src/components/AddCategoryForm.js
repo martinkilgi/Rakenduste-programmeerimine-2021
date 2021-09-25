@@ -15,7 +15,7 @@ function AddCategoryForm(props) {
 
         const category = {
             name: nameValue,
-            type: typeValue
+            category: typeValue
             
         }
 
@@ -31,7 +31,11 @@ function AddCategoryForm(props) {
             <br/>
             <label>Kategooria tyyp</label>
             <br/>
-            <input type='text' placeholder='Tyyp' required ref={typeInputRef}/>
+           <select name="type" id="type" required ref={typeInputRef}>
+                <option value="BASIC">Basic</option>
+                <option value="DELUXE">Deluxe</option>
+                <option value="PREMIUM">Premium</option>
+            </select>
             <br/>
             <button>Sisesta uus kategooria</button>
         </form>

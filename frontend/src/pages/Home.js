@@ -9,9 +9,8 @@ function Home() {
     const [loadedItems, setLoadedItems] = useState([]);
 
 
-
     useEffect(() => {
-        fetch("http://localhost/8080/items").then(res => {
+        fetch("http://localhost:8080/items").then(res => {
             return res.json();
         }).then(data => {
             console.log(data);
@@ -21,13 +20,13 @@ function Home() {
 
     }, [])
     
-    if (isLoading) {
-            return (
-                <div>
-                    Laeb....
-                </div>
-            )
-    }
+    // if (isLoading) {
+    //         return (
+    //             <div>
+    //                 Laeb....
+    //             </div>
+    //         )
+    // }
 
 
     return (
@@ -35,6 +34,9 @@ function Home() {
             Koduleht
             <Link to='/additem'>
                 <button>Lisa uus ese</button>
+            </Link>
+            <Link to='categories'>
+                <button>Vaata kategooriaid</button>
             </Link>
             <ItemList items={loadedItems} />
         </div>

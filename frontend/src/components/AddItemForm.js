@@ -38,7 +38,11 @@ function AddItemForm(props) {
             <br/>
             <label>Eseme kategooria</label>
             <br/>
-            <input type='text' placeholder='Kategooria' required ref={categoryInputRef}/>
+            <select name="category" id="category" required ref={categoryInputRef}>
+                <option value="basic">Basic</option>
+                <option value="deluxe">Deluxe</option>
+                <option value="premium">Premium</option>
+            </select>
             <br/>
             <button>Sisesta uus ese</button>
 

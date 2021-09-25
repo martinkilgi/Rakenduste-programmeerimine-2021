@@ -6,6 +6,8 @@ import {Route} from 'react-router-dom'
 import './App.css';
 import Navbar from './components/Navbar';
 import AddCategory from './pages/AddCategory';
+import CategoryList from './components/CategoryList';
+import Categories from './pages/Categories';
 
 
 function App() {
@@ -23,6 +25,9 @@ function App() {
      </Route>
      <Route path="/addcategory">
         <AddCategory />
+     </Route>
+     <Route path="/categories">
+        <Categories />
      </Route>
     </div>
   );

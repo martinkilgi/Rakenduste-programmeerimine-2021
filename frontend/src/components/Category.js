@@ -5,7 +5,7 @@ function Category (props) {
                 {props.name}
             </div>
             <div className="categorytype">
-                {props.type}
+                {props.category}
             </div>
         </div>
     )
