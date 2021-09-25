@@ -25,6 +25,6 @@ public class Category {
 
 }
 
-enum CategoryType {
-    PREMIUM, DELUXE, BASIC
-}
+//enum CategoryType {
+//    PREMIUM, DELUXE, BASIC
+//}
