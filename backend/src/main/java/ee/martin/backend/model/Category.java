@@ -28,3 +28,8 @@ public class Category {
 //enum CategoryType {
 //    PREMIUM, DELUXE, BASIC
 //}
+
+//andmebaas PostgreSQL -- relatsiooniline
+
+//delete, edit, view one item paring
+// frontendis kustuta paring valmis

@@ -21,9 +21,8 @@ public class CategoryController {
     }
 
     @PostMapping("categories")
-    public String postCategories(@RequestBody Category category) {
+    public void postCategories(@RequestBody Category category) {
         categoryService.saveCategory(category);
-        return "Post tootab: " + category.getName();
     }
 
 
