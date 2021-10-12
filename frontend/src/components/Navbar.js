@@ -9,15 +9,17 @@ function Navbar () {
             <Link to='/'>
                 <img className="logo" src='webshio.png' alt='logo' />
             </Link>
-            <Link to='/items' className="link">
+            <Link to='/items'>
                 <button>ESEMED</button>
             </Link>
-            <Link to='/categories' className="link">
+            <Link to='/categories'>
                 <button>KATEGOORIAD</button>
             </Link>
-            <Link to='/cart'>
-                <img className="cart" src="cart.svg" alt="cart"/>
-            </Link>
+            <div className="navbar-right">
+                <Link to='/cart'>
+                    <img className="cart" src="cart.svg" alt="cart"/>
+                </Link>
+            </div>
         </div>
 
         </>
