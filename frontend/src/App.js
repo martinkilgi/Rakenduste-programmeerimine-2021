@@ -8,6 +8,7 @@ import Navbar from './components/Navbar';
 import AddCategory from './pages/AddCategory';
 import CategoryList from './components/CategoryList';
 import Categories from './pages/Categories';
+import Items from './pages/Items';
 
 
 function App() {
@@ -25,6 +26,9 @@ function App() {
      </Route>
      <Route path="/addcategory">
         <AddCategory />
+     </Route>
+     <Route path="/items">
+        <Items />
      </Route>
      <Route path="/categories">
         <Categories />

@@ -1,3 +1,5 @@
+import "../css/Categories.css"
+
 import React from 'react'
 import {useState, useEffect} from 'react'
 import CategoryList from '../components/CategoryList';
@@ -20,11 +22,13 @@ function Categories() {
 
 
     return (
-        <div>
-            <Link to='/addcategory'>
-                <button>Lisa uus kategooria</button>
-            </Link>
+        <div className="categories">
+            <h1>Kategooriad</h1>
+            <hr />
             <CategoryList categories={loadedCategories}/>
+            <Link to='/addcategory'>
+                <button className="addcategorybutton">Lisa uus kategooria</button>
+            </Link>
         </div>
     )
 }

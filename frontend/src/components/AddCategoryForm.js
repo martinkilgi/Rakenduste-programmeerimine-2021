@@ -1,4 +1,4 @@
-import './AddItemForm.css';
+import '../css/AddCategoryForm.css';
 import {useRef, useState} from 'react';
 
 function AddCategoryForm(props) {
@@ -37,7 +37,7 @@ function AddCategoryForm(props) {
                 <option value="PREMIUM">Premium</option>
             </select>
             <br/>
-            <button>Sisesta uus kategooria</button>
+            <button className="addcategoryformbutton">Sisesta uus kategooria</button>
         </form>
     )
 }

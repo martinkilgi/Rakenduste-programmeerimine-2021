@@ -1,14 +1,16 @@
+import "../css/Item.css"
+
 function Item(props) {
     return (
-        <div>
+        <div className="item">
             <div className="itemName">
-                {props.name}
+                Nimi: {props.name}
             </div>
             <div className="itemPrice">
-                {props.price}
+                Hind: {props.price}
             </div>
             <div className="itemCategory">
-                {props.category}
+                Kategooria: {props.category}
             </div>
         </div>
     )

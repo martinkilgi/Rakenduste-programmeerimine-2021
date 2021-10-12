@@ -1,0 +1,11 @@
+.item {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    font-size: 25px;
+    line-height: 2;
+    background-color: lightgray;
+    width: 60%;
+    padding: 15px;
+    border-radius: 15px;
+    justify-content: space-between;
+}
