@@ -1,0 +1,18 @@
+.categories {
+    padding-left: 50px;
+}
+
+.categories .addcategorybutton {
+    background-color: red;
+    text-align: center;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.categories h1 {
+    text-align: left;
+}

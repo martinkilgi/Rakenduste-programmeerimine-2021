@@ -1,5 +1,5 @@
 import './Navbar.css';
-import {Link} from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 //import Logo from '../../public/webshio.png';
 
 function Navbar () {
@@ -9,9 +9,17 @@ function Navbar () {
             <Link to='/'>
                 <img className="logo" src='webshio.png' alt='logo' />
             </Link>
-            <Link to='/cart'>
-                <img className="cart" src="cart.svg" alt="cart"/>
+            <Link to='/items'>
+                <button>ESEMED</button>
             </Link>
+            <Link to='/categories'>
+                <button>KATEGOORIAD</button>
+            </Link>
+            <div className="navbar-right">
+                <Link to='/cart'>
+                    <img className="cart" src="cart.svg" alt="cart"/>
+                </Link>
+            </div>
         </div>
 
         </>

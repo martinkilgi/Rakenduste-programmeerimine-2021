@@ -2,7 +2,7 @@
   background-color: crimson;
   height: 75px;
   display: flex;
-  justify-content: space-between;
+  
 }
 
 .cart {
@@ -13,4 +13,32 @@
 
 .logo {
   width: 300px;
+}
+
+/* .navbar a {
+  text-decoration: none;
+  font-size: 20px;
+} */
+
+/* .navbar .link {
+  text-decoration: none;
+  color:black;
+  margin: 0;
+  padding: 0;
+} */
+
+.navbar .navbar-right {
+  margin-left: auto;
+}
+.navbar button {
+  float: left;
+  height: 100%;
+  background-color: crimson;
+  text-align: center;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
 }

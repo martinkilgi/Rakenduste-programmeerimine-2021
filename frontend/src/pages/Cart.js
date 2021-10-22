@@ -1,7 +1,7 @@
 function Cart(props) {
     return (
         <div>
-           Ostukorv
+           <h1>Ostukorv</h1>
         </div>
     )
 }

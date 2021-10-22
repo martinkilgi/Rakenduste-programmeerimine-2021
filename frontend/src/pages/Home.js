@@ -1,3 +1,5 @@
+import "../css/Home.css"
+
 import Item from '../components/Item'
 import ItemList from '../components/ItemList.js'
 import {useState, useEffect} from 'react'
@@ -31,14 +33,8 @@ function Home() {
 
     return (
         <div>
-            Koduleht
-            <Link to='/additem'>
-                <button>Lisa uus ese</button>
-            </Link>
-            <Link to='categories'>
-                <button>Vaata kategooriaid</button>
-            </Link>
-            <ItemList items={loadedItems} />
+            <h1>Koduleht</h1>
+            <h2>Siin on hetkel lihtsalt testimiseks mingi suvaline tekst</h2>
         </div>
     )
 }

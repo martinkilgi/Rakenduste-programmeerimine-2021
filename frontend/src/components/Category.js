@@ -1,11 +1,13 @@
+import "../css/Category.css"
+
 function Category (props) {
     return (
-        <div>
+        <div className="category">
             <div className="categoryname">
-                {props.name}
+                Nimi: {props.name}
             </div>
             <div className="categorytype">
-                {props.category}
+                Tüüp: {props.category}
             </div>
         </div>
     )
