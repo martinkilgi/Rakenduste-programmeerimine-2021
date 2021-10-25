@@ -25,7 +25,7 @@ function Items() {
         <div className="items">
             <h1>Esemed</h1>
             <hr />
-            <ItemList items={loadedItems}/>
+            <ItemList isAddToCart={true} items={loadedItems}/>
             <Link to='/additem'>
                 <button className="additembutton">Lisa uus asi</button>
             </Link>

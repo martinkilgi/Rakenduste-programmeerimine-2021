@@ -3,6 +3,7 @@ package ee.martin.backend.controller;
 
 import ee.martin.backend.model.Item;
 import ee.martin.backend.service.ItemService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,6 +32,7 @@ public class ItemController {
         return itemService.getItems();
     }
 
+    @ApiOperation("API otspunkt eseme muutmiseks, alati kaasa anda ID")
     @PutMapping("edit-item")
     public void editItem(@RequestBody Item item) {
         itemService.saveItem(item);

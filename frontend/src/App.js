@@ -9,6 +9,9 @@ import AddCategory from './pages/AddCategory';
 import CategoryList from './components/CategoryList';
 import Categories from './pages/Categories';
 import Items from './pages/Items';
+import AdminHome from './pages/AdminHome.js'
+import SingleItem from './pages/SingleItem';
+import EditItem from './pages/EditItem';
 
 
 function App() {
@@ -32,6 +35,15 @@ function App() {
      </Route>
      <Route path="/categories">
         <Categories />
+     </Route>
+     <Route path="/admin">
+        <AdminHome />
+     </Route>
+     <Route path="/item/:itemId">
+        <SingleItem />
+     </Route>
+     <Route path="/edit-item/:itemId">
+        <EditItem />
      </Route>
     </div>
   );

@@ -7,13 +7,16 @@ function Navbar () {
         <>
         <div className='navbar'>
             <Link to='/'>
-                <img className="logo" src='webshio.png' alt='logo' />
+                <img className="logo" src='/webshio.png' alt='logo' />
             </Link>
             <Link to='/items'>
                 <button>ESEMED</button>
             </Link>
             <Link to='/categories'>
                 <button>KATEGOORIAD</button>
+            </Link>
+            <Link to='/admin'>
+                <button>Admini vaatesse</button>
             </Link>
             <div className="navbar-right">
                 <Link to='/cart'>
