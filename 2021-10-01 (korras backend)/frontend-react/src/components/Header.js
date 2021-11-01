@@ -17,7 +17,7 @@ function Header() {
                 </Menu.Item>
                 <Menu.Item key='posts'>
                     <Link to='/posts'>
-                        Posts
+                        Add Posts
                     </Link>
                 </Menu.Item>
                 <Menu.Item key='showposts'>

@@ -14,7 +14,6 @@ export const removePost = id => ({
     payload: id
 })
 
-//Lisada siis uus constant selle jaoks ja muuta ka reduceris
 export const updatePosts = array => ({
     type: POST_UPDATE,
     payload: array

@@ -1,16 +1,18 @@
 import 'antd/dist/antd.css';
 import '../css/Posts.css';
-import Post from '../components/Post';
 import axios from 'axios';
 import {useState, useContext, useRef, useEffect} from 'react'
 import {Context} from '../store';
 import {addPost, removePost, updatePosts} from '../store/actions'
 import { Layout } from 'antd';
+import { useParams } from 'react-router-dom'
 
-function Posts() {
+function EditPost() {
 
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
+    const [editablePost, setEditablePost] = useState();
+    const {handle} = useParams();
     
     const [state, dispatch] = useContext(Context);
     const inputRef = useRef(null);
@@ -22,21 +24,26 @@ function Posts() {
     useEffect(() => {
         
         
+        if(handle !== undefined) {
 
-        console.log(state.posts.data.map(e => <li key={e.id}>{e.id} {e.title}</li>));
+            axios.get('http://localhost:8081/api/post/onepost/' + handle)
+            .then((response) => {
+                const resp = response.data;
+                console.log(JSON.stringify(resp));
+                setEditablePost(resp);
+            }, (error) => {
+                console.log(error);
+            });
 
-        console.log(state.auth.user);
-        console.log(state.posts);
+            console.log(handle);
 
-
-    }, [])
-
-    //voite panna nuppu, et get latest from database vms (sync)
+        }
+    }, [handle])
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        addNewPost();
+        updatePost();
 
         setTitle("");
 
@@ -45,17 +52,20 @@ function Posts() {
         }
     }
 
-    const addNewPost = () => {
+    const updatePost = () => {
+
+        console.log(editablePost[0]._id);
+
         const newPost = {
-            id: Date.now(),
-            title: title,
-            description: description,
+            id: editablePost[0]._id,
+            title: title ? title : editablePost[0].title,
+            description: description ? description : editablePost[0].description,
             user: state.auth.user,
             today: today.toLocaleDateString()
             
         }
 
-        axios.post('http://localhost:8081/api/post/create', {
+        axios.put(`http://localhost:8081/api/post/update/${handle}`, {
             post: newPost
         })
         .then((response) => {
@@ -65,8 +75,8 @@ function Posts() {
             console.log(error);
         });
 
-        // Salvestame andmebaasi ja kui on edukas,
-        // siis teeme dispatchi ja uuendame state lokaalselt
+
+        dispatch(removePost(editablePost.id))
 
         console.log(newPost);
 
@@ -80,18 +90,12 @@ function Posts() {
                     <div style={{ textAlign: "center"}}>
                     <form onSubmit={handleSubmit}>
                         <h2>Post Title</h2>
-                        <input ref={inputRef} type="text" value={title} onChange={e => {setTitle(e.target.value)}} autoFocus/>
+                        <input type="text" onChange={e => {setTitle(e.target.value)}} autoFocus/>
                         <h2>Post Description</h2>
-                        <input ref={inputRef} type="text" value={description} onChange={e => {setDescription(e.target.value)}} autoFocus/>
+                        <input type="text" onChange={e => {setDescription(e.target.value)}} autoFocus/>
                         <br />
                         <button type='submit'>Submit</button>
                     </form>
-                        { state.posts.data.map(e => <li key={e.id}>
-                            {e.id} {e.title}
-                            <span style={{cursor: "pointer"}} onClick={() => dispatch(removePost(e.id))}>
-                                &#128540;
-                            </span>
-                        </li>) }
                     </div>
                 </div>
             </Content>
@@ -100,4 +104,4 @@ function Posts() {
     )
 }
 
-export default Posts
+export default EditPost

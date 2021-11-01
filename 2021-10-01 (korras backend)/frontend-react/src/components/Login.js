@@ -40,6 +40,7 @@ function Login() {
 
         const newUser = {
             token: token,
+            user: firstName,
             firstName: firstName,
             lastName: lastName,
             email: email,

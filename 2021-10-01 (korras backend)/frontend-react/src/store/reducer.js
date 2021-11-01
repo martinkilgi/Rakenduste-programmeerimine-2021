@@ -12,11 +12,11 @@ const postReducer = (state, action) => {
                 ...state,
                 data: state.data.filter(post => post.id !== action.payload)
             };
-        //kodutoona uue listi vastu votmine maybe
         case POST_UPDATE:
             return {
                 ...state,
-                data: state.data.filter(post => post.id !== action.payload).concat(action.payload)
+                data: action.payload
+                //data: state.data.filter(post => post.id !== action.payload).concat(action.payload)
             };
         default:
             return state

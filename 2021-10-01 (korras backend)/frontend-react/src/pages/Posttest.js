@@ -1,34 +1,30 @@
 import {useContext, useEffect, useState} from 'react'
-import { Layout, Table } from 'antd';
+import { Layout, Table, Space } from 'antd';
 import {Context} from '../store';
 import {addPost, removePost, updatePosts} from '../store/actions'
-import Post from '../components/Post'
+import { Link } from 'react-router-dom';
+import axios from'axios';
 
 const Posttest = () => {
 
     const [state, dispatch] = useContext(Context);
     const [data, setData] = useState([]);
-
-
-    const src = [
-        { key: '1', user: 'Gourav', text: 'testtext', date: 10 },
-        { key: '2', user: 'Kartik', text: 'testtext', date: 20 },
-        { key: '3', user: 'Madhu', text: 'testtext', date: 30 },
-        { key: '4', user: 'Karu', text: 'testtext', date: 40 },
-        { key: '5', user: 'Dinesh', text: 'testtext', date: 50 },
-    ];
-
-    const dataSource = state.posts.data.map(post => <Post key={post.id} user={post.id} text={post.title} date={Date.now()} />);
-    
+    const [respond, setRespond] = useState();
     
 
     useEffect(() => {
 
-        setData(dataSource);
+       console.log(state.posts.data);
 
-        //console.log(dataSource[0].props.user);
-        //console.log(dataSource.props);
-        //console.log(src);
+       axios.get('http://localhost:8081/api/post')
+        .then((response) => {
+            const resp = response.data;
+            console.log(JSON.stringify(resp));
+            setRespond(resp);
+            
+        }, (error) => {
+            console.log(error);
+        });
 
     
     }, [])
@@ -40,20 +36,34 @@ const Posttest = () => {
             key: 'user',
         },
         {
-            title: 'Post',
-            dataIndex: 'text',
-            key: 'text',
+            title: 'Title',
+            dataIndex: 'title',
+            key: 'title',
+        },
+        {
+            title: 'Description',
+            dataIndex: 'description',
+            key: 'description',
         },
         {
             title: 'Date',
             dataIndex: 'date',
             key: 'date',
         },
+        {
+            title: 'Action',
+            key: 'action',
+            render: (text, record) => (
+                <Space size="middle">
+                    <Link to={`/edit-post/${record._id}`}>Edit</Link>
+                </Space>
+            ),
+        },
     ];
 
     return (
         <div>
-            <Table dataSource={src} columns={columns} />;
+            <Table dataSource={respond} columns={columns} />;
         </div>
     )
 }

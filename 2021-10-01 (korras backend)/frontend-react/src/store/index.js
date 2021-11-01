@@ -2,8 +2,8 @@
 import { createContext, useReducer, useEffect } from 'react';
 import {postReducer, authReducer} from './reducer.js';
 import combineReducers from "react-combine-reducers"
-
-//Toimub andmebaasi paring
+import {addPost, removePost, updatePosts} from '../store/actions';
+import axios from 'axios';
 
 
 const initialPosts = {
@@ -26,6 +26,20 @@ export const Context = createContext(initialState)
 function Store ({ children }) {
 
     const [state, dispatch] = useReducer(combinedReducer, initialState);
+
+    useEffect(() => {
+
+        axios.get('http://localhost:8081/api/post')
+        .then((response) => {
+            const resp = response.data;
+            console.log(JSON.stringify(resp));
+            dispatch(updatePosts(response.data));
+        }, (error) => {
+            console.log(error);
+        });
+
+    },[])
+    
 
     return (
         <Context.Provider value={[ state, dispatch ]}>

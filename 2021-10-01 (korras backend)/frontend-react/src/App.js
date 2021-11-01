@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import ShowMagic from "./components/ShowMagic";
+import EditPost from "./pages/EditPost";
 import Posts from './pages/Posts'
 import Posttest from "./pages/Posttest";
 
@@ -17,6 +18,7 @@ function App() {
         <Route exact path="/showposts" component={Posttest} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
+        <Route exact path="/edit-post/:handle" component={EditPost} />
         
 
       </Switch>

@@ -1,4 +1,7 @@
 const Post = require('../models/Post')
+var mongoose = require('mongoose');
+var ObjectId = require('mongodb').ObjectID;
+
 
 exports.getPosts = async (req, res) => {
   const posts = await Post.find({})
@@ -6,14 +9,32 @@ exports.getPosts = async (req, res) => {
   res.status(200).send(posts)
 }
 
-exports.createPost = async (req, res) => {
-  //saaksite info katte red.bodyst
+exports.getOnePost = async (req, res) => {
+  const {id} = req.params;
 
-  const {title, text} = req.body;
+  if (id.match(/^[0-9a-fA-F]{24}$/)) {
+    post = await Post.find({ _id: id })
+  }
+
+  console.log(post);
+
+  res.status(200).send(post)
+  
+
+}
+
+exports.createPost = async (req, res) => {
+
+  const {id, title, description, user, today} = req.body.post;
+
+  console.log(req.body.post.id);
 
   const newPost = {
+    id: id,
     title: title,
-    text: text
+    description: description,
+    user: user,
+    date: today
   }
 
   const createdPost = new Post(newPost);
@@ -24,9 +45,14 @@ exports.createPost = async (req, res) => {
 }
 
 exports.updatePost = async (req, res) => {
-  const { id } = req.params;
+  const { id, title, description, user } = req.body.post;
 
-  const post = await Post.findByIdAndUpdate({_id: id}, {title: "Testin, et muudaks titlet"});
+  console.log(id);
+
+  const filter = { _id: id };
+  const update = { title: title, description: description, user: user};
+
+  const post = await Post.findByIdAndUpdate(filter, update);
 
   console.log(post);
 
